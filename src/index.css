@@ -1,0 +1,171 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --terminal-bg: #0f0f14;
+  --terminal-text: #f8f8f2;
+  --terminal-prompt: #50fa7b;
+  --terminal-error: #ff5555;
+  --terminal-success: #50fa7b;
+  --terminal-warning: #f1fa8c;
+  --terminal-info: #bd93f9;
+  --terminal-secondary: #6272a4;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'JetBrains Mono', monospace;
+  background-color: #1a1b26;
+  color: var(--terminal-text);
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.cursor {
+  display: inline-block;
+  width: 8px;
+  height: 14px;
+  background-color: var(--terminal-text);
+  animation: blink 1s infinite;
+  vertical-align: middle;
+  margin-left: 1px;
+}
+
+.terminal-window {
+  width: 90%;
+  max-width: 800px;
+  height: 80vh;
+  margin: 2rem auto;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.terminal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #282a36;
+  padding: 6px 12px;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+.terminal-title {
+  color: var(--terminal-secondary);
+  font-size: 12px;
+}
+
+.terminal-controls {
+  display: flex;
+  gap: 6px;
+}
+
+.terminal-control {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.terminal-control.close {
+  background-color: #ff5f56;
+}
+
+.terminal-control.minimize {
+  background-color: #ffbd2e;
+}
+
+.terminal-control.maximize {
+  background-color: #27c93f;
+}
+
+.terminal-body {
+  flex: 1;
+  background-color: var(--terminal-bg);
+  padding: 12px;
+  overflow-y: auto;
+  white-space: pre-wrap;
+}
+
+.command-line {
+  display: flex;
+  margin-bottom: 6px;
+}
+
+.prompt {
+  color: var(--terminal-prompt);
+  margin-right: 8px;
+}
+
+.user-input {
+  background: transparent;
+  border: none;
+  color: var(--terminal-text);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 14px;
+  flex: 1;
+  outline: none;
+  caret-color: transparent;
+}
+
+.terminal-output {
+  margin-bottom: 12px;
+}
+
+.output-text {
+  margin-bottom: 6px;
+}
+
+.output-success {
+  color: var(--terminal-success);
+}
+
+.output-error {
+  color: var(--terminal-error);
+}
+
+.output-warning {
+  color: var(--terminal-warning);
+}
+
+.output-info {
+  color: var(--terminal-info);
+}
+
+@media (max-width: 640px) {
+  body {
+    font-size: 12px;
+  }
+  
+  .terminal-window {
+    width: 95%;
+    height: 90vh;
+    margin: 1rem auto;
+  }
+  
+  .terminal-header {
+    padding: 4px 8px;
+  }
+  
+  .terminal-control {
+    width: 8px;
+    height: 8px;
+  }
+  
+  .terminal-body {
+    padding: 8px;
+  }
+}
