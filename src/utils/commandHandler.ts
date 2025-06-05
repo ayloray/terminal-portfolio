@@ -1,7 +1,9 @@
 import { CommandOutput, CommandType } from '../types';
 import { commandList } from './commands';
 
+// Function to handle commands
 export const handleCommand = (cmd: string, args: string[]): CommandOutput => {
+  // Special case for welcome message
   if (cmd === 'welcome') {
     return {
       text: `
@@ -19,15 +21,16 @@ export const handleCommand = (cmd: string, args: string[]): CommandOutput => {
       ╚═╝  ╚═╝   ╚═╝   ╚══════╝╚═╝  ╚═╝╚═╝  ╚═╝
                                                
                                                                                                                                                                                                                                                                                   
-Welkom bij mijn terminal portfolio! Dit is een interactieve terminal-interface waar je mijn profiel kunt verkennen.
+Welcome to my terminal portfolio! This is an interactive terminal-like interface where you can explore my profile.
 
-Type 'help' om een lijst van beschikbare commando's te zien.
-Type 'about' om meer over mij te leren.
+Type 'help' to see a list of available commands.
+Type 'about' to learn more about me.
 `,
       type: 'info',
     };
   }
 
+  // Handle autocomplete requests
   if (cmd === 'help' && args.length > 0 && args[0] === '--autocomplete') {
     const partial = args[1] || '';
     const suggestions = commandList
@@ -44,20 +47,24 @@ Type 'about' om meer over mij te leren.
     };
   }
 
+  // Find the command in the command list
   const command = commandList.find(
     (c) => c.name === cmd || c.aliases?.includes(cmd)
   );
 
+  // If command exists, execute it
   if (command) {
     return command.execute(args);
   }
 
+  // Command not found
   return {
-    text: `Commando niet gevonden: ${cmd}\nType 'help' om beschikbare commando's te zien.`,
+    text: `Command not found: ${cmd}\nType 'help' to see available commands.`,
     type: 'error',
   };
 };
 
+// Export command registration function
 export const registerCommand = (command: CommandType): void => {
   commandList.push(command);
 };
