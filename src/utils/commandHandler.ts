@@ -11,12 +11,16 @@ export const handleCommand = (cmd: string, args: string[]): CommandOutput => {
 
 
 
-      █████╗ ██╗   ██╗███████╗██╗  ██╗ █████╗ 
-      ██╔══██╗╚██╗ ██╔╝██╔════╝██║  ██║██╔══██╗
-      ███████║ ╚████╔╝ ███████╗███████║███████║
-      ██╔══██║  ╚██╔╝  ╚════██║██╔══██║██╔══██║
-      ██║  ██║   ██║   ███████║██║  ██║██║  ██║
-      ╚═╝  ╚═╝   ╚═╝   ╚══════╝╚═╝  ╚═╝╚═╝  ╚═╝
+                 _           
+                | |          
+  __ _ _   _ ___| |__   __ _ 
+ / _` | | | / __| '_ \ / _` |
+| (_| | |_| \__ | | | | (_| |
+ \__,_|\__, |___|_| |_|\__,_|
+        __/ |                
+       |___/                 
+
+
                                                
                                                                                                                                                                                                                                                                                   
 Welkom bij mijn terminal portfolio! Dit is een interactieve terminal-interface waar je mijn profiel kunt verkennen.
