@@ -12,13 +12,12 @@ export const handleCommand = (cmd: string, args: string[]): CommandOutput => {
 
 
                  _           
-                | |          
   __ _ _   _ ___| |__   __ _ 
  / _` | | | / __| '_ \ / _` |
 | (_| | |_| \__ | | | | (_| |
  \__,_|\__, |___|_| |_|\__,_|
-        __/ |                
        |___/                 
+
 
 
                                                
