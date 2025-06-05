@@ -3,24 +3,24 @@ import { resumeData } from '../../data/resumeData';
 
 export const aboutCommand: CommandType = {
   name: 'about',
-  description: 'Display information about me',
+  description: 'Toon informatie over mij',
   aliases: ['info', 'bio'],
   execute: () => {
     const { name, title, summary } = resumeData;
 
     const aboutText = `
-===== About Me =====
+===== Over Mij =====
 
-Name: ${name}
-Title: ${title}
+Naam: ${name}
+Titel: ${title}
 
 ${summary}
 
-Type 'skills' to see my technical skills
-Type 'experience' to see my work experience
-Type 'education' to see my educational background
-Type 'projects' to see my projects
-Type 'contact' to see my contact information
+Type 'skills' om mijn technische vaardigheden te zien
+Type 'experience' om mijn werkervaring te zien
+Type 'education' om mijn opleiding te zien
+Type 'projects' om mijn projecten te zien
+Type 'contact' om mijn contactgegevens te zien
 `;
 
     return {

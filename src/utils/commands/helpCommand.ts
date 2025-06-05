@@ -3,11 +3,10 @@ import { commandList } from './index';
 
 export const helpCommand: CommandType = {
   name: 'help',
-  description: 'Display available commands and their descriptions',
-  usage: 'help [command]',
+  description: 'Toon beschikbare commando\'s en hun beschrijvingen',
+  usage: 'help [commando]',
   aliases: ['?', 'h'],
   execute: (args: string[]) => {
-    // If a specific command is asked for
     if (args.length > 0) {
       const commandName = args[0];
       const command = commandList.find(
@@ -15,15 +14,15 @@ export const helpCommand: CommandType = {
       );
 
       if (command) {
-        let helpText = `Command: ${command.name}\n`;
-        helpText += `Description: ${command.description}\n`;
+        let helpText = `Commando: ${command.name}\n`;
+        helpText += `Beschrijving: ${command.description}\n`;
         
         if (command.usage) {
-          helpText += `Usage: ${command.usage}\n`;
+          helpText += `Gebruik: ${command.usage}\n`;
         }
         
         if (command.aliases && command.aliases.length > 0) {
-          helpText += `Aliases: ${command.aliases.join(', ')}\n`;
+          helpText += `Aliassen: ${command.aliases.join(', ')}\n`;
         }
 
         return {
@@ -32,14 +31,13 @@ export const helpCommand: CommandType = {
         };
       } else {
         return {
-          text: `Command '${commandName}' not found. Type 'help' to see all available commands.`,
+          text: `Commando '${commandName}' niet gevonden. Type 'help' om alle beschikbare commando's te zien.`,
           type: 'error'
         };
       }
     }
 
-    // Default help menu
-    let helpText = 'Available Commands:\n\n';
+    let helpText = 'Beschikbare Commando\'s:\n\n';
     
     commandList
       .sort((a, b) => a.name.localeCompare(b.name))
@@ -47,8 +45,8 @@ export const helpCommand: CommandType = {
         helpText += `${cmd.name.padEnd(12)} - ${cmd.description}\n`;
       });
 
-    helpText += '\nType \'help [command]\' to get more information about a specific command.';
-    helpText += '\nUse TAB to autocomplete commands and UP/DOWN arrows to navigate command history.';
+    helpText += '\nType \'help [commando]\' voor meer informatie over een specifiek commando.';
+    helpText += '\nGebruik TAB om commando\'s automatisch aan te vullen en PIJL OMHOOG/OMLAAG om door de commandogeschiedenis te navigeren.';
 
     return {
       text: helpText,
