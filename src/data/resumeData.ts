@@ -67,8 +67,8 @@ export const resumeData: ResumeData = {
     },
   ],
   contact: {
-    email: 'aysha@example.com',
-    github: 'github.com/aysha',
-    website: 'aysha.dev',
+    email: 'aysha.den.hollander@gmail.com',
+    github: 'https://github.com/ayloray',
+    website: 'https://terminal-portfolio-nu-liard.vercel.app/',
   },
 };
