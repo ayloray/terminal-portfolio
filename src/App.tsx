@@ -1,11 +1,14 @@
 import React from 'react';
 import Terminal from './components/Terminal';
+import { LanguageProvider } from './contexts/LanguageContext';
 
 function App() {
   return (
-    <div className="min-h-screen bg-gray-900">
-      <Terminal />
-    </div>
+    <LanguageProvider>
+      <div className="min-h-screen bg-gray-900">
+        <Terminal />
+      </div>
+    </LanguageProvider>
   );
 }
 

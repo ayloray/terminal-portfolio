@@ -11,6 +11,9 @@
   --terminal-warning: #f1fa8c;
   --terminal-info: #bd93f9;
   --terminal-secondary: #6272a4;
+  --terminal-link: #8be9fd;
+  --terminal-highlight: #ffb86c;
+  --terminal-comment: #6272a4;
 }
 
 * {
@@ -25,6 +28,23 @@ body {
   color: var(--terminal-text);
   font-size: 14px;
   line-height: 1.4;
+}
+
+a {
+  color: var(--terminal-link);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.highlight {
+  color: var(--terminal-highlight);
+}
+
+.comment {
+  color: var(--terminal-comment);
 }
 
 @keyframes blink {

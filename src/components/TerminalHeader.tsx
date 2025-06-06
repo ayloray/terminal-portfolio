@@ -1,7 +1,11 @@
 import React from 'react';
 import { Terminal } from 'lucide-react';
+import LanguageSwitch from './LanguageSwitch';
+import { useLanguage } from '../contexts/LanguageContext';
 
 const TerminalHeader: React.FC = () => {
+  const { language } = useLanguage();
+
   return (
     <div className="terminal-header">
       <div className="terminal-controls">
@@ -13,7 +17,7 @@ const TerminalHeader: React.FC = () => {
         <Terminal className="w-8 h-8 mr-8" />
         <span>aysha@amsterdam ~ </span>
       </div>
-      <div className="w-[100px]"></div>
+      <LanguageSwitch />
     </div>
   );
 };
