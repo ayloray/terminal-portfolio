@@ -5,7 +5,7 @@ import { LanguageProvider } from './contexts/LanguageContext';
 function App() {
   return (
     <LanguageProvider>
-      <div className="min-h-screen bg-gray-900">
+      <div className="min-h-screen bg-black">
         <Terminal />
       </div>
     </LanguageProvider>
