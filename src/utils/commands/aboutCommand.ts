@@ -1,26 +1,28 @@
 import { CommandType } from '../../types';
 import { resumeData } from '../../data/resumeData';
+import { translations } from '../../translations';
 
 export const aboutCommand: CommandType = {
   name: 'about',
-  description: 'Toon informatie over mij',
+  description: 'Display information about me',
   aliases: ['info', 'bio'],
-  execute: () => {
+  execute: (args: string[], language: 'en' | 'nl') => {
     const { name, title, summary } = resumeData;
+    const t = translations[language].about;
 
     const aboutText = `
-===== Over Mij =====
+${t.title}
 
-Naam: ${name}
-Titel: ${title}
+${t.name}: ${name}
+${t.title}: ${title}
 
 ${summary}
 
-Type 'skills' om mijn technische vaardigheden te zien
-Type 'experience' om mijn werkervaring te zien
-Type 'education' om mijn opleiding te zien
-Type 'projects' om mijn projecten te zien
-Type 'contact' om mijn contactgegevens te zien
+${t.viewMore.skills}
+${t.viewMore.experience}
+${t.viewMore.education}
+${t.viewMore.projects}
+${t.viewMore.contact}
 `;
 
     return {

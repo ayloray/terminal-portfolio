@@ -1,29 +1,15 @@
 import { CommandOutput, CommandType } from '../types';
 import { commandList } from './commands';
+import { translations } from '../translations';
+import { useLanguage } from '../contexts/LanguageContext';
 
 export const handleCommand = (cmd: string, args: string[]): CommandOutput => {
+  const { language } = useLanguage();
+  const t = translations[language];
+
   if (cmd === 'welcome') {
     return {
-      text: `
-
-
-
-
-
-
-  .---.-.--.--.-----.|  |--.---.-.
-  |  _  |  |  |__ --||     |  _  |
-  |___._|___  |_____||__|__|___._|
-        |_____|      
-
-
-                                               
-                                                                                                                                                                                                                                                                                  
-Welkom bij mijn terminal portfolio! Dit is een interactieve terminal-interface waar je mijn profiel kunt verkennen.
-
-Type 'help' om een lijst van beschikbare commando's te zien.
-Type 'about' om meer over mij te leren.
-`,
+      text: t.welcome,
       type: 'info',
     };
   }
@@ -49,11 +35,11 @@ Type 'about' om meer over mij te leren.
   );
 
   if (command) {
-    return command.execute(args);
+    return command.execute(args, language);
   }
 
   return {
-    text: `Commando niet gevonden: ${cmd}\nType 'help' om beschikbare commando's te zien.`,
+    text: t.errors.commandNotFound.replace('{command}', cmd),
     type: 'error',
   };
 };

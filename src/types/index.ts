@@ -3,7 +3,7 @@ export type CommandType = {
   description: string;
   usage?: string;
   aliases?: string[];
-  execute: (args: string[]) => CommandOutput;
+  execute: (args: string[], language: 'en' | 'nl') => CommandOutput;
 };
 
 export type CommandOutput = {
