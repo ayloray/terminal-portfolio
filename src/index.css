@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 :root {
-  --terminal-bg: #0a0a0a;
+  --terminal-bg: 'https://www.kali.org/wallpapers/images/2024/kali-ferrofluid.jpg'
   --terminal-text: #ff69b4;
   --terminal-prompt: #da70d6;
   --terminal-error: #ff355e;
