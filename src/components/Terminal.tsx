@@ -4,18 +4,20 @@ import CommandLine from './CommandLine';
 import TerminalOutput from './TerminalOutput';
 import { CommandHistoryType } from '../types';
 import { handleCommand } from '../utils/commandHandler';
+import { useLanguage } from '../contexts/LanguageContext';
 
 const Terminal: React.FC = () => {
   const [commandHistory, setCommandHistory] = useState<CommandHistoryType[]>([]);
   const [inputHistory, setInputHistory] = useState<string[]>([]);
   const [historyIndex, setHistoryIndex] = useState(-1);
   const terminalBodyRef = useRef<HTMLDivElement>(null);
+  const { language } = useLanguage();
 
   // Initial welcome message
   useEffect(() => {
-    const welcomeOutput = handleCommand('welcome', []);
+    const welcomeOutput = handleCommand('welcome', [], language);
     setCommandHistory([{ command: 'welcome', output: welcomeOutput }]);
-  }, []);
+  }, [language]);
 
   // Auto-scroll to bottom when new commands are added
   useEffect(() => {
@@ -33,7 +35,7 @@ const Terminal: React.FC = () => {
     const cmd = args.shift()?.toLowerCase() || '';
 
     // Process command
-    const output = handleCommand(cmd, args);
+    const output = handleCommand(cmd, args, language);
 
     // Update history
     setCommandHistory([...commandHistory, { command, output }]);
@@ -93,7 +95,7 @@ const Terminal: React.FC = () => {
           onArrowUp={() => handleHistoryNavigation('up')}
           onArrowDown={() => handleHistoryNavigation('down')}
           onTabComplete={(partial) => {
-            const suggestions = handleCommand('help', ['--autocomplete', partial]).text
+            const suggestions = handleCommand('help', ['--autocomplete', partial], language).text
               .split('\n')
               .filter(s => s.trim().length > 0);
             

@@ -1,10 +1,8 @@
 import { CommandOutput, CommandType } from '../types';
 import { commandList } from './commands';
 import { translations } from '../translations';
-import { useLanguage } from '../contexts/LanguageContext';
 
-export const handleCommand = (cmd: string, args: string[]): CommandOutput => {
-  const { language } = useLanguage();
+export const handleCommand = (cmd: string, args: string[], language: string): CommandOutput => {
   const t = translations[language];
 
   if (cmd === 'welcome') {
