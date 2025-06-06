@@ -24,7 +24,7 @@
 
 body {
   font-family: 'JetBrains Mono', monospace;
-  background-color: #000000;
+  background-image: 'https://www.kali.org/wallpapers/images/2024/kali-ferrofluid.jpg';
   color: var(--terminal-text);
   font-size: 14px;
   line-height: 1.4;
