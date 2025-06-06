@@ -4,16 +4,16 @@
 
 :root {
   --terminal-bg: #0a0a0a;
-  --terminal-text: #33ff00;
-  --terminal-prompt: #00ff00;
-  --terminal-error: #ff0000;
-  --terminal-success: #00ff00;
-  --terminal-warning: #ffff00;
-  --terminal-info: #00ffff;
-  --terminal-secondary: #808080;
-  --terminal-link: #0088ff;
-  --terminal-highlight: #ff8800;
-  --terminal-comment: #666666;
+  --terminal-text: #ff69b4;
+  --terminal-prompt: #da70d6;
+  --terminal-error: #ff355e;
+  --terminal-success: #ff69b4;
+  --terminal-warning: #ffd700;
+  --terminal-info: #9370db;
+  --terminal-secondary: #ba55d3;
+  --terminal-link: #ff1493;
+  --terminal-highlight: #ff00ff;
+  --terminal-comment: #dda0dd;
 }
 
 * {
@@ -71,7 +71,7 @@ a:hover {
   flex-direction: column;
   overflow: hidden;
   border-radius: 8px;
-  box-shadow: 0 0 20px rgba(51, 255, 0, 0.2);
+  box-shadow: 0 0 20px rgba(255, 105, 180, 0.3);
   border: 1px solid var(--terminal-text);
 }
 
@@ -105,15 +105,15 @@ a:hover {
 }
 
 .terminal-control.close {
-  background-color: #440000;
+  background-color: #440022;
 }
 
 .terminal-control.minimize {
-  background-color: #444400;
+  background-color: #442244;
 }
 
 .terminal-control.maximize {
-  background-color: #004400;
+  background-color: #220044;
 }
 
 .terminal-body {
