@@ -68,9 +68,12 @@ export const translations = {
     |___._|___  |_____||__|__|___._|
           |_____|      
 
+
+
     Welkom bij mijn terminal portfolio! Dit is een interactieve terminal-interface waar je mijn profiel kunt verkennen.
 
     Type 'help' om een lijst van beschikbare commando's te zien.
+    
     Type 'about' om meer over mij te leren.
     `,
     help: {
